@@ -3,11 +3,57 @@ Important Notes:
    React 19 Upgrade Guide: https://react.dev/blog/2024/04/25/react-19-upgrade-guide#deprecated-react-test-renderer
    Check version of React: 
         npm view react version
-   React Testing Lib Link: https://www.npmjs.com/package/@testing-library/react
-   Install RTL: npm install --save-dev @testing-library/react @testing-library/dom
+   React Testing Lib Link: 
+      https://www.npmjs.com/package/@testing-library/react
+      https://www.npmjs.com/package/@testing-library/react#the-problem
+   
+1. First let's create an app manually 
+     - md   C:\_AMyReactDev\reviewFolder15-configure-manually-created-react-to-use-RTL
+     - cd   C:\_AMyReactDev\reviewFolder15-configure-manually-created-react-to-use-RTL
+     - npm init -y
+ 
+     - Now, since you have used npm to initialize it, your project should have a package.json file which should be 
+     filled with your defaults. 
 
+     - let us setup folder structure 
+         md src
+         md dist
 
-How to Webpack 5 - Setup Tutorial - https://www.robinwieruch.de/webpack-setup-tutorial/
+      - create index.js in ./src. add the following content:
+          console.log ("Hello Project");
+
+      - navigate to your project root and run index.js:
+          node src/index.js
+
+      - "Hello Project" should appear in the command line
+
+      - Add scripts to package.json
+          - now instead of running  "node src/index.js" this time 
+            run it with "npm start"
+          "Hello Project" should appear in the command line
+
+    Congratulationd we have setup our first Javasript project.
+
+2. Now let us setup  Webpack 5 - Setup Tutorial - https://www.robinwieruch.de/webpack-setup-tutorial/
+  
+     - Setup Project File/Folder structure
+         mkdir dist
+         cd dist
+         touch index.html
+     - add content to index.html/ - this file contains all the HTML to 
+     display your website in a browser. No JavaScript is involved yet. 
+     In order to get you started with JavaScript, put the following logging 
+     in a src/index.js file: console.log('Hello Webpack Project.');
+
+     - As for now, you should have dist/ and src/folder for your project
+         - dist/  (everything you need to take your application to production on a web server sits in the dist/ folder)
+            -- index.html
+         - src/   (everything to implement your application sits in the src/ folder.)
+            -- index.js
+         - package.json
+  
+       
+  
    npm view react version command to find out version of react you are using
 
 1. We are using Webpack to generate one JavaScript bundle from 
