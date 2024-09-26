@@ -7,7 +7,7 @@ Important Notes:
       https://www.npmjs.com/package/@testing-library/react
       https://www.npmjs.com/package/@testing-library/react#the-problem
    
-1. First let's create an app manually 
+1. First let's create an Javascript app manually 
      - md   C:\_AMyReactDev\reviewFolder15-configure-manually-created-react-to-use-RTL
      - cd   C:\_AMyReactDev\reviewFolder15-configure-manually-created-react-to-use-RTL
      - npm init -y
@@ -34,7 +34,7 @@ Important Notes:
 
     Congratulationd we have setup our first Javasript project.
 
-2. Now let us setup  Webpack 5 - Setup Tutorial - https://www.robinwieruch.de/webpack-setup-tutorial/
+2. Second setup Webpack 5 - Setup Tutorial - https://www.robinwieruch.de/webpack-setup-tutorial/
   
      - Setup Project File/Folder structure
          mkdir dist
@@ -72,6 +72,11 @@ Important Notes:
          directory: touch webpack.config.js
 
          (5) Finish the Webpack setup by adding this content to webpack.config.js
+
+
+
+
+
           
 
 
@@ -79,6 +84,55 @@ Important Notes:
        
   
    npm view react version command to find out version of react you are using
+
+3. Finally setup Webpack 5 with Babel -https://www.robinwieruch.de/webpack-babel-setup-tutorial/
+     
+    - Babel enables one writing code with JavaScript features that aren't supported 
+    by most browser yet. Perhaps you have heard about JavaScript ES6 (ES2015), ES7, 
+    and other versions of ECMAScript specification which are up and coming for the 
+    JavaScript language.
+
+    - By using Babel, the code which isn't supported yet, will get transpiled back 
+    to vanilla JavaScript so that every environment (e.g. browser) can interpret it. 
+    In order to get Babel running, you need to install two of its main dependencies 
+    on the command line:
+
+       npm install --save-dev @babel/core @babel/preset-env
+
+   - Moreover, in case you have Webpack in place to bundle your JavaScript application, 
+   you will have to install a Webpack Loader for Babel:  
+
+       npm install --save-dev babel-loader
+
+   - Now, with all libraries (node packages) in place, you need to adjust your 
+   package.json and webpack.config.js (if necessary) to respect the Babel changes.
+   These changes will include all packages you have installed before. 
+
+   First, in your package.json, include the Babel Preset:
+        "babel": {
+            "presets": [
+               "@babel/preset-env"
+            ]
+         },
+    
+    Second, your webpack.config.js file needs to include Babel in its build process 
+    as well. There, make use of the previously installed Loader for Babel. You need 
+    to tell Webpack on which files to use the loader (e.g. .js files) and optionally 
+    which folders to exclude from the process (e.g. node_modules): 
+
+    You can do "npm start" again. Nothing should have changed except for that you can 
+    use upcoming ECMAScript features for JavaScript now. An optional step would 
+    be to extract your Babel configuration into a separate .babelrc configuration 
+    file. You can create this file in your project's root directory on the 
+    command line:
+          
+          touch .babelrc
+
+    Then, add the configuration for Babel -- which you have previously added in 
+    your package.json -- in the .babelrc file. Don't forget to remove the configuration 
+    in the package.json afterward. It should be configured only once.
+  
+
 
 1. We are using Webpack to generate one JavaScript bundle from 
    all our source code in the src/ folder, which will
