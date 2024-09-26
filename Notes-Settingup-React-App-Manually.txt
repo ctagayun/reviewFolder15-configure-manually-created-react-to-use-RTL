@@ -50,8 +50,32 @@ Important Notes:
             -- index.html
          - src/   (everything to implement your application sits in the src/ folder.)
             -- index.js
-         - package.json
+         - package.json 
   
+     - add this to dist/index.html: <script src="./bundle.js"></script>
+       We need to bundle stuff in ./src so we will need to setup web pack.
+
+         (1) npm install --save-dev webpack webpack-dev-server webpack-cli (from root)
+
+             After installation as a side effect node_modules/folder with all third
+             party dependencies are installed. Check package.json to see dependencies
+         
+         (2) In your package.json change the start script to: 
+               "start": "webpack serve --mode development",
+
+         (3) You can run your npm start script on the command line again, however, 
+         this time you have Webpack as local web server to serve your files in 
+         development mode. Navigate to your dist/index.html file to see its output 
+         in the browser. 
+
+         (4) et’s create the required webpack.config.js file in your project's root 
+         directory: touch webpack.config.js
+
+         (5) Finish the Webpack setup by adding this content to webpack.config.js
+          
+
+
+      
        
   
    npm view react version command to find out version of react you are using
