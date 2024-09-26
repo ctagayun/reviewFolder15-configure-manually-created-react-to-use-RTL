@@ -136,10 +136,73 @@ Important Notes:
 
 
 ==============================================
-   Section 2: React Testing Library Tutorial
-   https://www.robinwieruch.de/react-testing-library/
+   Section 2: Testing with JEST + React Testing Library (RTL) 
 ==============================================
+ 1. Setup JEST
+   - go to - https://www.robinwieruch.de/react-testing-library/
 
+   - Click How to test React with Jest - https://www.robinwieruch.de/react-testing-jest/
+
+   - Scroll down to "JEST Testing in React Setup" 
+               
+
+   - copy and add the following code block to src/app.js (including import statements)
+            "Export const dataReducer ..... to export default App
+         if no app.js create with: touch app.js from ./src
+         
+
+      - the code block uses Axios to fetch data so install axios
+                  npm install axios 
+
+      - In order to get our tests up and running, set up Jest by installing it on the 
+      command line as development dependencies:
+            npm install --save-dev jest
+
+         then add to package.json script section: 
+            "test": "jest --config ./jest.config.json"
+
+         then define jest.config.json in Project Root
+            touch jest.config.json
+
+         add the following pattern to jest.config.json
+            {
+               "testRegex": "((\\.|/*.)(spec))\\.js?$"
+               }
+         create a test file called: App.spec.js
+            touch src/App.spec.js
+
+         implement your test suite in App.spec.js
+
+      - now run your test 
+         npm start 
+         npm run test -- --watch
+
+ 2. Scroll down to "Jest Snapshot Testing in React"
+      - Jest introduced the so-called Snapshot Test. Basically a Snapshot Test creates a 
+      snapshot -- which is stored in a separate file -- of your rendered component's 
+      output when you run your test. This snapshot is used for diffing it to the next 
+      snapshot when you run your test again.
+
+      - By using Jest for Snapshot Tests, you can keep your tests lightweight, without 
+      worrying too much about implementation details of the component
+
+      - First, install the react-test-renderer utility library commonly used for Jest to
+      render your actual component in your tests:
+            npm install --save-dev react-test-renderer
+
+      - Second implement your first Snapshot Test with Jest (see notes in App.spec.js)
+
+ 3. Scroll down to "Jest Unit/Integration Testing in React:"
+      
+      - In React 19, react-test-renderer logs a deprecation warning, and has switched 
+      to concurrent rendering. We recommend migrating your tests to @testing-library/react 
+      or @testing-library/react-native for a modern and well supported testing experience.
+
+
+
+==============================================
+   Section 3:  
+==============================================
    1. We are using Webpack to generate one JavaScript bundle from 
       all our source code in the src/ folder, which will
       your dist/ folder afterward. Then, it can be used in our entry point HTML file 
@@ -312,59 +375,6 @@ Important Notes:
 
 
       
-      7- React Testing with JEST + React Testing Library (RTL)
-
-         - Now let us proceed test a React App using JEST +RTL:
-            https://www.robinwieruch.de/react-testing-jest/ "How to Test React with Jest"
-
-         - Scroll down to "JEST Testing in React Setup" 
-            
-         - copy and add the following code block to src/app.js (including import statements)
-               "Export const dataReducer ..... to export default App
-
-               - the code block uses Axios to fetch data so install axios
-                     npm install axios 
-
-         - In order to get our tests up and running, set up Jest by installing it on the 
-            command line as development dependencies:
-               npm install --save-dev jest
-            then add to package.json script section: 
-               "test": "jest --config ./jest.config.json"
-            then define jest.config.json in Project Root
-               touch jest.config.json
-            add the following pattern to jest.config.json
-               {
-                  "testRegex": "((\\.|/*.)(spec))\\.js?$"
-                  }
-            create a test file called: App.spec.js
-               touch src/App.spec.js
-
-            implement your test suite in App.spec.js
-   
-         - now run your test 
-            npm start 
-            npm run test -- --watch
-
-      8. Scroll down to "Jest Snapshot Testing in React"
-            - Jest introduced the so-called Snapshot Test. Basically a Snapshot Test creates a 
-         snapshot -- which is stored in a separate file -- of your rendered component's 
-         output when you run your test. This snapshot is used for diffing it to the next 
-         snapshot when you run your test again.
-   
-         - By using Jest for Snapshot Tests, you can keep your tests lightweight, without 
-         worrying too much about implementation details of the component
-
-         - First, install the react-test-renderer utility library commonly used for Jest to
-         render your actual component in your tests:
-               npm install --save-dev react-test-renderer
-
-         - Second implement your first Snapshot Test with Jest (see notes in App.spec.js)
-
-      9. Scroll down to "Jest Unit/Integration Testing in React:"
-         
-         - In React 19, react-test-renderer logs a deprecation warning, and has switched 
-         to concurrent rendering. We recommend migrating your tests to @testing-library/react 
-         or @testing-library/react-native for a modern and well supported testing experience.
-
+      
    REVIEW FOLDER11 - React Function Components (TODO - Very good)
       - https://www.robinwieruch.de/react-function-component/
