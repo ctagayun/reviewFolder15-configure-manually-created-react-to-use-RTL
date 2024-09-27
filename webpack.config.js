@@ -1,28 +1,33 @@
-
+//Next, let's inform Webpack in our webpack.config.js file about files 
+//with the JSX extension to make sure that they run through the transpiling step as well:
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
+  
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     static: path.resolve(__dirname, './dist'),
   },
 };
+
 
 //const path = require('path');
 
