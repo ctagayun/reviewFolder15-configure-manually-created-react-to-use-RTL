@@ -1,13 +1,22 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import App, {  dataReducer } from './App';
+import App, {dataReducer } from './App';
+import Counter from './Counter';
 
 const list = ['a', 'b', 'c'];
 
 describe('My Test Suite', () => {
     it('My Test Case', () => {
       expect(true).toEqual(true);
+    });
+  });
+
+  describe('Counter', () => {
+    test('snapshot renders', () => {
+      const component = renderer.create(<Counter counter={1} />);
+      let tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
     });
   });
 

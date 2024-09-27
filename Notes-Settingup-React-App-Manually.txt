@@ -198,6 +198,12 @@ Important Notes:
 
       - Second implement your first Snapshot Test with Jest (see notes in App.spec.js)
 
+      - next run Jest Test in watch mode: 
+            npm run test -- --watch
+
+      - after successfull run change  <div> to <span> in Counter component.
+        it should now fail.
+        
  3. Scroll down to "Jest Unit/Integration Testing in React:"
       
       - In React 19, react-test-renderer logs a deprecation warning, and has switched 
