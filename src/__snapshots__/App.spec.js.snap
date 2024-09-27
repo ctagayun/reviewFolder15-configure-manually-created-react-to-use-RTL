@@ -5,11 +5,11 @@ exports[`App snapshot renders 1`] = `
   <h1>
     My Counter
   </h1>
-  <span>
+  <div>
     <p>
       0
     </p>
-  </span>
+  </div>
   <button
     onClick={[Function]}
     type="button"
